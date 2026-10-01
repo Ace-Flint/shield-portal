@@ -1,0 +1,15 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<title>Shield Portal</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<style>body{font-family:system-ui,-apple-system,sans-serif;background:#0b1020;color:#eef2ff;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;text-align:center;padding:24px}
+h1{color:#75FA4E;margin:0 0 8px}a{color:#75FA4E;font-weight:600}.sub{opacity:.8;margin:6px 0 18px}</style>
+</head><body><div>
+<h1>Shield Pest Portal</h1>
+<p class=sub id=s>Connecting you to your live portal...</p>
+<p><a id=lnk href="#">Tap here if it does not open automatically</a></p>
+<script>
+fetch('url.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+ if(d&&d.url){document.getElementById('lnk').href=d.url;location.replace(d.url);}
+ else{document.getElementById('s').textContent='Portal link is being set up. Check back in a minute.';}
+}).catch(_=>{document.getElementById('s').textContent='Portal link is being set up. Check back in a minute.';});
+</script></div></body></html>
